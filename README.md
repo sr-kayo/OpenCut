@@ -60,7 +60,8 @@ proto use    # installs the tools pinned in .prototools
 moon run web:dev       # localhost:5173
 moon run api:dev       # localhost:8787
 moon run desktop:dev   # see apps/desktop/README.md
-moon run mobile:dev    # Android dev build, see apps/mobile/README.md
+moon run mobile:dev    # Metro, see apps/mobile/README.md
+moon run mobile:preview # Android preview APK
 ```
 
 ## Contributing

@@ -4,16 +4,16 @@
   "main": "expo-router/entry",
   "private": true,
   "scripts": {
-    "start": "expo start --dev-client",
-    "android": "expo run:android",
+    "start": "expo start",
+    "android": "expo run:android --variant release",
     "prebuild": "expo prebuild --platform android --clean",
-    "build:android": "expo prebuild --platform android --clean && cd android && ./gradlew assembleDebug",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
     "doctor": "npx expo-doctor",
-    "icons": "bun scripts/generate-icons.mjs"
+    "icons": "bun scripts/generate-icons.mjs",
+    "build:preview": "expo prebuild --platform android --clean && cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.2",
@@ -24,7 +24,6 @@
     "expo-asset": "~58.0.20",
     "expo-audio": "~58.0.11",
     "expo-constants": "~58.0.15",
-    "expo-dev-client": "~58.0.18",
     "expo-document-picker": "~58.0.4",
     "expo-file-system": "~58.0.13",
     "expo-font": "~58.0.11",

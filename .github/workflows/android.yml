@@ -77,13 +77,13 @@ jobs:
       - name: Generate native project
         run: bun run prebuild
 
-      - name: Build debug APK
+      - name: Build preview APK
         working-directory: apps/mobile/android
-        run: ./gradlew assembleDebug -PreactNativeArchitectures=arm64-v8a --no-daemon --max-workers=2
+        run: ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a --no-daemon --max-workers=2
 
       - name: Upload APK
         uses: actions/upload-artifact@v7
         with:
-          name: opencut-mobile-debug-arm64
-          path: apps/mobile/android/app/build/outputs/apk/debug/app-debug.apk
+          name: opencut-mobile-preview-arm64
+          path: apps/mobile/android/app/build/outputs/apk/release/app-release.apk
           if-no-files-found: error

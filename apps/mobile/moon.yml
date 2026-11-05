@@ -45,8 +45,8 @@ tasks:
     options:
       runInCI: false
 
-  build-android:
-    command: 'bun run build:android'
+  preview:
+    command: 'bun run build:preview'
     inputs:
       - 'src/**/*'
       - 'assets/**/*'
@@ -54,6 +54,6 @@ tasks:
       - 'package.json'
       - 'bun.lock'
     outputs:
-      - 'android/app/build/outputs/apk/debug/app-debug.apk'
+      - 'android/app/build/outputs/apk/release/app-release.apk'
     options:
       runInCI: false

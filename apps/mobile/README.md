@@ -26,12 +26,12 @@ Android-first React Native app for OpenCut, built with Expo.
 ## Commands
 
 ```sh
-moon run mobile:dev          # Metro / dev client
-moon run mobile:android      # build and install on the connected device
+moon run mobile:dev          # Metro / Expo Go
+moon run mobile:android      # build and install the preview on a device
+moon run mobile:preview      # build the preview APK
 moon run mobile:typecheck
 moon run mobile:lint
 moon run mobile:test
-moon run mobile:build-android
 ```
 
 Or from `apps/mobile`:
@@ -39,13 +39,30 @@ Or from `apps/mobile`:
 ```sh
 bun install
 bun run prebuild
-bun run android
+bun run android        # preview build installed on the device
+bun run build:preview  # preview APK
 bun run icons          # regenerate app icons from brand/marks
 ```
 
 The generated `android/` directory is not committed. `expo prebuild` recreates it from `app.json`.
 
-Release builds currently use the generated debug keystore. Configure a production keystore before distributing the APK.
+## Preview builds
+
+The preview build is a release Android build without `expo-dev-client`. It bundles the JavaScript and can be installed on a device without Metro.
+
+```sh
+moon run mobile:preview
+```
+
+The APK is written to `android/app/build/outputs/apk/release/app-release.apk`.
+
+For EAS Build, use the `preview` profile in `eas.json`:
+
+```sh
+npx eas-cli build --profile preview --platform android
+```
+
+Local preview builds use the generated debug keystore. EAS Build manages its own signing credentials. Configure a production keystore before distributing outside the team.
 
 ## Architecture
 
