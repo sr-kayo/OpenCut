@@ -21,6 +21,7 @@
 - An Editor API
 - First-class third party plugins (made possible by a plugin-first architecture)
 - Desktop, mobile, and browser from one codebase (Rust core)
+- Android MVP in `apps/mobile` (Expo + React Native), currently local-only and without export
 - MCP server (for AI agents)
 - Headless mode (automation, batch rendering)
 - A scripting tab directly in the editor
@@ -59,6 +60,7 @@ proto use    # installs the tools pinned in .prototools
 moon run web:dev       # localhost:5173
 moon run api:dev       # localhost:8787
 moon run desktop:dev   # see apps/desktop/README.md
+moon run mobile:dev    # Android dev build, see apps/mobile/README.md
 ```
 
 ## Contributing
